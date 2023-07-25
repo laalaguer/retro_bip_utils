@@ -21,7 +21,7 @@
 
 # Imports
 import unittest
-from bip_utils        import Bip49, Bip44Coins
+from retro_bip_utils        import Bip49, Bip44Coins
 from .test_bip44_base import Bip44BaseTestHelper
 
 

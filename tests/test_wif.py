@@ -22,7 +22,7 @@
 # Imports
 import binascii
 import unittest
-from bip_utils import BitcoinConf, LitecoinConf, DogecoinConf, DashConf, WifDecoder, WifEncoder, Base58ChecksumError
+from retro_bip_utils import BitcoinConf, LitecoinConf, DogecoinConf, DashConf, WifDecoder, WifEncoder, Base58ChecksumError
 
 
 # Some keys randomly generated from:

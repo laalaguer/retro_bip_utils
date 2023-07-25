@@ -22,7 +22,7 @@
 # Imports
 import binascii
 import unittest
-from bip_utils import (
+from retro_bip_utils import (
     EntropyGenerator, Bip39WordsNum, Bip39EntropyBitLen, Bip39MnemonicGenerator, Bip39MnemonicValidator, Bip39SeedGenerator, Bip39ChecksumError
 )
 

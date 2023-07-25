@@ -20,7 +20,7 @@
 
 
 # Imports
-import sha3
+from eth_hash.auto import keccak
 from .key_helper import KeyHelper
 
 
@@ -47,7 +47,7 @@ class EthAddrUtils:
         """
 
         # Compute address digest
-        addr_digest = sha3.keccak_256(addr.encode()).hexdigest()
+        addr_digest = keccak(addr.encode()).digest().hex()
         # Encode it
         enc_addr = [c.upper() if (int(addr_digest[i], 16) >= 8) else c.lower() for i, c in enumerate(addr)]
 
@@ -73,5 +73,5 @@ class EthAddr:
         if not KeyHelper.IsPublicUncompressed(pub_key_bytes):
             raise ValueError("Public uncompressed key is required for Ethereum address")
 
-        addr = sha3.keccak_256(pub_key_bytes).hexdigest()[EthAddrConst.START_BYTE:]
+        addr = keccak(pub_key_bytes).digest().hex()[EthAddrConst.START_BYTE:]
         return EthAddrConst.PREFIX + EthAddrUtils.ChecksumEncode(addr)

@@ -21,7 +21,7 @@
 
 # Imports
 import binascii
-from bip_utils import (
+from retro_bip_utils import (
      Bip44Coins, Bip44Changes, Bip44Levels,
      Bip44DepthError, Bip44CoinNotAllowedError,
      Bip32KeyError,

@@ -24,7 +24,7 @@ import binascii
 import unittest
 import ecdsa
 from ecdsa.curves import SECP256k1
-from bip_utils    import EthAddr
+from retro_bip_utils    import EthAddr
 
 # Some keys randomly taken from Ian Coleman web page
 # https://iancoleman.io/bip39/

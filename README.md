@@ -1,8 +1,14 @@
 # BIP utility library
-[![PyPI version](https://badge.fury.io/py/bip-utils.svg)](https://badge.fury.io/py/bip-utils)
-[![Build Status](https://travis-ci.com/ebellocchia/bip_utils.svg?branch=master)](https://travis-ci.com/ebellocchia/bip_utils)
-[![codecov](https://codecov.io/gh/ebellocchia/bip_utils/branch/master/graph/badge.svg)](https://codecov.io/gh/ebellocchia/bip_utils)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/ebellocchia/bip_utils/master/LICENSE)
+[![PyPI version](https://badge.fury.io/py/retro-bip-utils.svg)](https://badge.fury.io/py/retro-bip-utils)
+[![Build Status](https://travis-ci.com/laalaguer/retro_bip_utils.svg?branch=master)](https://travis-ci.com/laalaguer/retro_bip_utils)
+[![codecov](https://codecov.io/gh/laalaguer/retro_bip_utils/branch/master/graph/badge.svg)](https://codecov.io/gh/laalaguer/retro_bip_utils)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/laalaguer/retro_bip_utils/master/LICENSE)
+
+## About the Fork
+
+This fork aims at at retro version v1.0.5 of original `ebellocchia/bip_utils`. The reason is quite simple: the simplicity of the code dependency.
+
+This fork removes one of the dependency: `pysha3` (discontinued > Python 3.6) and uses `eth-hash` instead (underhood, it uses `pysha3` < Python 3.6 and `safe-pysha3` > Python 3.6).
 
 ## Introduction
 
@@ -45,7 +51,7 @@ To install it:
 
 - Using *pip*:
 
-        pip install bip_utils
+        pip install retro_bip_utils
 
 To run the tests:
 
@@ -83,7 +89,7 @@ Supported entropy bits:
 **Code example**
 
     import binascii
-    from bip_utils import EntropyGenerator, Bip39MnemonicGenerator, Bip39WordsNum
+    from retro_bip_utils import EntropyGenerator, Bip39MnemonicGenerator, Bip39WordsNum
 
     # Generate a random mnemonic string of 15 words
     mnemonic = Bip39MnemonicGenerator.FromWordsNumber(Bip39WordsNum.WORDS_NUM_15)
@@ -103,7 +109,7 @@ It is also possible to get back the entropy bytes from a mnemonic.
 
 **Code example**
 
-     from bip_utils import Bip39MnemonicValidator
+     from retro_bip_utils import Bip39MnemonicValidator
 
      # Get back the original entropy from a mnemonic string
      entropy_bytes = Bip39MnemonicValidator(mnemonic).GetEntropy()
@@ -117,7 +123,7 @@ This seed can be used to contruct a Bip class.
 
 **Code example**
 
-    from bip_utils import Bip39SeedGenerator
+    from retro_bip_utils import Bip39SeedGenerator
 
     # If not specified, the passphrase will be empty
     passphrase = "my_passphrase"
@@ -135,7 +141,7 @@ The constructed class is the master path, so printing the private key will resul
 **Code example**
 
     import binascii
-    from bip_utils import Bip32
+    from retro_bip_utils import Bip32
 
     # Seed bytes
     seed_bytes = binascii.unhexlify(b"5eb00bbddcf069084889a8ab9155568165f5c453ccb85e70811aaed6f6da5fc19a5ac40b389cd370d086206dec8aa6c43daea6690f20ad3d8d48b2d2ce9e38e4")
@@ -160,7 +166,7 @@ The object returned will be at the same depth of the specified key.
 
 **Code example**
 
-    from bip_utils import Bip32
+    from retro_bip_utils import Bip32
 
     # Private extended key from derivation path m/0'/1 (depth 2)
     key_str = "xprv9wTYmMFdV23N2TdNG573QoEsfRrWKQgWeibmLntzniatZvR9BmLnvSxqu53Kw1UmYPxLgboyZQaXwTCg8MSY3H2EU4pWcQDnRnrVA1xe8fs"
@@ -186,7 +192,7 @@ The *Bip32Utils.HardenIndex* method can be used to make an index hardened.
 **Code example**
 
     import binascii
-    from bip_utils import Bip32, Bip32Utils
+    from retro_bip_utils import Bip32, Bip32Utils
 
     # Seed bytes
     seed_bytes = binascii.unhexlify(b"5eb00bbddcf069084889a8ab9155568165f5c453ccb85e70811aaed6f6da5fc19a5ac40b389cd370d086206dec8aa6c43daea6690f20ad3d8d48b2d2ce9e38e4")
@@ -225,7 +231,7 @@ In case of error, an empty list is returned.
 
 **Code example**
 
-    from bip_utils import Bip32PathParser
+    from retro_bip_utils import Bip32PathParser
 
     # Print: ["m", 2147483648, 2147483649, 2]
     print(Bip32PathParser.Parse("m/0'/1'/2"))
@@ -248,7 +254,7 @@ A Bip class can be constructed from a seed, like Bip32. The seed can be specifie
 **Code example**
 
     import binascii
-    from bip_utils import Bip44, Bip44Coins
+    from retro_bip_utils import Bip44, Bip44Coins
 
     # Seed bytes
     seed_bytes = binascii.unhexlify(b"5eb00bbddcf069084889a8ab9155568165f5c453ccb85e70811aaed6f6da5fc19a5ac40b389cd370d086206dec8aa6c43daea6690f20ad3d8d48b2d2ce9e38e4")
@@ -263,7 +269,7 @@ The Bip object returned will be at the same depth of the specified key.
 
 **Code example**
 
-    from bip_utils import Bip44, Bip44Coins
+    from retro_bip_utils import Bip44, Bip44Coins
 
     # Private extended key
     key_str = "xprv9s21ZrQH143K3QTDL4LXw2F7HEK3wJUD2nW2nRk4stbPy6cq3jPPqjiChkVvvNKmPGJxWUtg6LnF5kejMRNNU3TGtRBeJgk33yuGBxrMPHi"
@@ -293,7 +299,7 @@ The library can be easily extended with other coins anyway.
 **Code example**
 
     import binascii
-    from bip_utils import Bip44, Bip44Coins, Bip44Changes
+    from retro_bip_utils import Bip44, Bip44Coins, Bip44Changes
 
     # Seed bytes
     seed_bytes = binascii.unhexlify(b"5eb00bbddcf069084889a8ab9155568165f5c453ccb85e70811aaed6f6da5fc19a5ac40b389cd370d086206dec8aa6c43daea6690f20ad3d8d48b2d2ce9e38e4")
@@ -348,7 +354,7 @@ These libraries are used internally by the other libraries, but they are availab
 
 **Code example**
 
-    from bip_utils import EthAddr, XrpAddr
+    from retro_bip_utils import EthAddr, XrpAddr
 
     # Ethereum needs the uncompressed public key
     addr = EthAddr.ToAddress(pub_key_bytes)
@@ -361,7 +367,7 @@ These libraries are used internally by the other libraries, but they are availab
 
 **Code example**
 
-    from bip_utils import P2PKH, P2SH, P2WPKH
+    from retro_bip_utils import P2PKH, P2SH, P2WPKH
 
     # P2PKH addresses (the default uses Bitcoin network address version, you can pass a different one as second parameter)
     addr = P2PKH.ToAddress(pub_key_bytes)
@@ -377,7 +383,7 @@ This library is used internally by the other libraries, but it's available also 
 **Code example**
 
     import binascii
-    from bip_utils import WifDecoder, WifEncoder
+    from retro_bip_utils import WifDecoder, WifEncoder
 
     key_bytes = binascii.unhexlify(b'1837c1be8e2995ec11cda2b066151be2cfb48adf9e47b151d46adab3a21cdf67')
 
@@ -394,7 +400,7 @@ It supports both normal encode/decode and check_encode/check_decode with Bitcoin
 **Code example**
 
     import binascii
-    from bip_utils import Base58Decoder, Base58Encoder, Base58Alphabets
+    from retro_bip_utils import Base58Decoder, Base58Encoder, Base58Alphabets
 
     data_bytes = binascii.unhexlify(b"636363")
 
@@ -422,7 +428,7 @@ This library is used internally by the other libraries, but it's available also 
 **Code example**
 
     import binascii
-    from bip_utils import Bech32Decoder, Bech32Encoder
+    from retro_bip_utils import Bech32Decoder, Bech32Encoder
 
     data_bytes = binascii.unhexlify(b'9c90f934ea51fa0f6504177043e0908da6929983')
 
@@ -435,7 +441,7 @@ This library is used internally by the other libraries, but it's available also 
 
 Example from mnemonic generation to wallet addresses.
 
-    from bip_utils import Bip39MnemonicGenerator, Bip39SeedGenerator, Bip44, Bip44Coins, Bip44Changes
+    from retro_bip_utils import Bip39MnemonicGenerator, Bip39SeedGenerator, Bip44, Bip44Coins, Bip44Changes
 
     # Generate random mnemonic
     mnemonic = Bip39MnemonicGenerator.FromWordsNumber(12)

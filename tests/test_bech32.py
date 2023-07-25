@@ -22,7 +22,7 @@
 # Imports
 import binascii
 import unittest
-from bip_utils import Bech32Decoder, Bech32Encoder, Bech32ChecksumError, Bech32FormatError
+from retro_bip_utils import Bech32Decoder, Bech32Encoder, Bech32ChecksumError, Bech32FormatError
 
 
 # Some keys randomly taken from Ian Coleman web page

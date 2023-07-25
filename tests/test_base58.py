@@ -22,7 +22,7 @@
 # Imports
 import binascii
 import unittest
-from bip_utils import Base58Decoder, Base58Encoder, Base58ChecksumError, Base58Alphabets
+from retro_bip_utils import Base58Decoder, Base58Encoder, Base58ChecksumError, Base58Alphabets
 
 
 # Test vector from Bitcoin alphabet

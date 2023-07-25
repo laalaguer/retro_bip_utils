@@ -22,7 +22,7 @@
 # Imports
 import binascii
 import unittest
-from bip_utils import BitcoinConf, LitecoinConf, DogecoinConf, DashConf, P2PKH
+from retro_bip_utils import BitcoinConf, LitecoinConf, DogecoinConf, DashConf, P2PKH
 
 
 # Some keys randomly taken from Ian Coleman web page

@@ -22,7 +22,7 @@
 # Imports
 import binascii
 import unittest
-from bip_utils import Bip32, Bip32KeyError, Bip32PathError, Bip32PathParser, Bip32Utils
+from retro_bip_utils import Bip32, Bip32KeyError, Bip32PathError, Bip32PathParser, Bip32Utils
 
 
 # Tests from BIP32 page

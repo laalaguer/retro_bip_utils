@@ -22,7 +22,7 @@
 # Imports
 import binascii
 import unittest
-from bip_utils import XrpAddr
+from retro_bip_utils import XrpAddr
 
 
 # Some keys randomly taken from Ian Coleman web page
