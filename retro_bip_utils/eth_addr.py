@@ -1,4 +1,4 @@
-# Copyright (c) 2020 Emanuele Bellocchia
+# Copyright (c) 2020 Emanuele Bellocchia, 2023 A Byte Ahead
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
